@@ -1,5 +1,5 @@
-# angular
-curso de angular
+# Reserva de Salas
+Sistema de Reserva de Salas
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.2.
 
