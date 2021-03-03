@@ -1,0 +1,63 @@
+<h4>Reservas de Salas</h4>
+<hr>
+
+<div class="row">
+  <div class="col text-right mb-3">
+
+    <button class="btn btn-primary"
+            routerLink="/reserva/nuevo">
+      <i class="fa fa-plus"></i>
+      Nueva Reserva
+    </button>
+
+  </div>
+</div>
+<div class="table-responsive">
+<table *ngIf="!cargando && reservas.length > 0" class="table table-striped animate__animated animate__fadeIn animate__fast">
+  <thead>
+  <tr>
+    <th scope="col">Día</th>
+    <th scope="col">Desde</th>
+    <th scope="col">Hasta</th>
+    <th scope="col">Persona</th>
+    <th scope="col">Sala</th>
+    <th scope="col">Acciones</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let reserva of reservas; let i=index">
+    <td>{{reserva.desde | date:'dd/MM/yyyy'}}</td>
+    <td>{{reserva.desde | date:'HH:mm'}}</td>
+    <td>{{reserva.hasta | date:'HH:mm'}}</td>
+    <td>{{reserva.persona}}</td>
+    <td>{{reserva.sala}}</td>
+    <td>
+      <button class="btn btn-info mr-2 mb-2" [routerLink]="['/reserva', reserva.id]">
+        <i class="fa fa-pencil"></i>
+      </button>
+      <button (click)="borrarReserva(reserva, i)" class="btn btn-danger mb-2">
+        <i class="fa fa-trash"></i>
+      </button>
+
+    </td>
+  </tr>
+  </tbody>
+</table>
+</div>
+
+<div *ngIf="cargando" class="alert alert-info text-center mt-3 animate__animated animate__fadeIn animate__fast">
+  <h4>Cargando...</h4>
+  <p>
+    <i class="fa fa-refresh fa-spin fa-2x"></i>
+
+  </p>
+  <p>Espere por favor</p>
+</div>
+
+
+<div *ngIf="!cargando && reservas.length === 0" class="alert alert-warning text-center mt-3  animate__animated animate__fadeIn animate__fast">
+  <h4>No Hay Registros...</h4>
+  <p>
+    <i class="fa fa-exclamation fa-2x"></i>
+  </p>
+</div>

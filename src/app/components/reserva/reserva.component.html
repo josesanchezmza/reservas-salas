@@ -1,0 +1,113 @@
+
+  <div class="row justify-content-md-center animate__animated animate__fadeIn">
+      <div class="col-sm-5 text-center">
+        <h2><i class="fa fa-calendar-check-o"></i> Reservar Sala </h2>
+        <hr>
+      </div>
+  </div>
+
+  <div class="row justify-content-md-center animate__animated animate__fadeIn">
+      <div class="col-sm-5 text-right">
+        <button class="btn btn-danger"
+                routerLink="/reservas">
+          <i class="fa fa-arrow-left"></i>
+          Regresar
+        </button>
+        <br>
+      </div>
+  </div>
+
+
+
+
+    <div class="row row justify-content-md-center animate__animated animate__fadeIn">
+<div class="col-sm-5">
+  <form [formGroup]="formulario" (ngSubmit)="guardar()">
+
+
+    <div class="form-group">
+      <label>Desde: </label>
+      <div class="input-group date" data-target-input="nearest" NgTempusdominusBootstrap>
+        <input
+          class="form-control"
+          formControlName="desde"
+          [options]="startOptions"
+          NgTempusdominusBootstrapInput
+          type="text"
+          [ngClass]="{'is-invalid': formulario.get('desde').errors && formulario.get('desde').touched}"
+        />
+        <div class="input-group-append" NgTempusdominusBootstrapToggle>
+          <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+    <div class="form-group">
+      <label>Hasta: </label>
+      <div class="input-group date" data-target-input="nearest" NgTempusdominusBootstrap>
+        <input
+          class="form-control"
+          formControlName="hasta"
+          [options]="endOptions"
+          NgTempusdominusBootstrapInput
+          type="text"
+          [ngClass]="{'is-invalid': formulario.get('hasta').errors && formulario.get('hasta').touched}"
+        />
+        <div class="input-group-append" NgTempusdominusBootstrapToggle>
+          <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label>Persona: </label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="persona">
+    </div>
+
+    <div class="form-group">
+      <label>Sala: </label>
+      <select class="form-control custom-select"
+              formControlName="sala">
+        <option selected></option>
+        <option value="Sala Azul">Sala Azul</option>
+        <option value="Sala Roja">Sala Roja</option>
+        <option value="Sala Verde">Sala Verde</option>
+      </select>
+
+
+    </div>
+
+    <button [disabled]="formulario.invalid" type="submit" class="btn btn-primary btn-block"><h4><i class="fa fa-check"></i> Reservar</h4></button>
+  </form>
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+<!--<div class="row">-->
+<!--  <div class="col">-->
+<!--    <br>-->
+<!--    <strong>Form es valido:</strong> {{formulario.valid}}-->
+<!--    <br>-->
+<!--    <strong>Form valores:</strong> {{formulario.value | json}}-->
+<!--    <br>-->
+<!--    <strong>Input fecha_desde fue tocado? </strong> {{formulario.get('desde').touched}}-->
+<!--    <br>-->
+<!--    <br/>-->
+<!--  </div>-->
+<!--</div>-->
