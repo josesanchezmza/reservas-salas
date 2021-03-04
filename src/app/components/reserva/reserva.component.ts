@@ -84,13 +84,9 @@ export class ReservaComponent implements OnInit {
 
 
   async guardar( ): Promise<boolean> {
-
     const desdeForm = new Date(this.formulario.value.desde);
     const hastaForm = new Date(this.formulario.value.hasta);
 
-
-    console.log(desdeForm);
-    console.log(hastaForm);
     if (desdeForm > hastaForm)
     {
       Swal.fire({
@@ -102,9 +98,6 @@ export class ReservaComponent implements OnInit {
       return;
     }
 
-
-
-    return;
 
     Swal.fire({
       title: 'Espere',
