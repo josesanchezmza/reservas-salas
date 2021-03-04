@@ -84,6 +84,21 @@ export class ReservaComponent implements OnInit {
 
 
   async guardar( ): Promise<boolean> {
+    const desdeForm = new Date(this.formulario.value.desde);
+    const hastaForm = new Date(this.formulario.value.hasta);
+
+    if (desdeForm > hastaForm)
+    {
+      Swal.fire({
+        title: 'Atención',
+        text: 'El Momento de Finalización no puede ser anterior o igual al de Inicio.',
+        icon: 'warning',
+        allowOutsideClick: false
+      });
+      return;
+    }
+
+
     Swal.fire({
       title: 'Espere',
       text: 'Guardando Información',
